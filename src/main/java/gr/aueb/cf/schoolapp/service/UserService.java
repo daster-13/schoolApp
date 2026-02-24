@@ -38,7 +38,7 @@ public class UserService  implements IUserService {
             user.setPassword(passwordEncoder.encode(userInsertDTO.password()));
 
             Role role = roleRepository.findById(userInsertDTO.roleId())
-                    .orElseThrow(() -> new EntityNotFoundException("Role id=" + userInsertDTO.roleId() + "invalid"));
+                    .orElseThrow(() -> new EntityInvalidArgumentException("Role id=" + userInsertDTO.roleId() + "invalid"));
 
             role.addUser(user);
             userRepository.save(user);

@@ -54,12 +54,14 @@ public class SecurityConfig {
                         .successHandler(authenticationSuccessHandler)
                        .failureHandler(authenticationFailureHandler)
                 )
-                .logout((logout -> logout
-                        .logoutSuccessUrl("/login?logout"))    //δουλευει με Post logout
+                .logout(logout -> logout
+                        .logoutSuccessUrl("/login?logout=")    // δουλεύει με post logout
                         .invalidateHttpSession(true)
                         .deleteCookies("JSESSIONID")
                 );
+
                 return http.build();
+
     }
     @Bean
     public PasswordEncoder passwordEncoder(){

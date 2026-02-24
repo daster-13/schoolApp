@@ -40,7 +40,7 @@ public class TeacherService implements ITeacherService {
 
     @Override
     @PreAuthorize("hasAuthority('INSERT_TEACHER')")
-    @Transactional(rollbackFor = { EntityAlreadyExistsException.class, EntityInvalidArgumentException.class} )
+    @Transactional(rollbackFor = {EntityAlreadyExistsException.class, EntityInvalidArgumentException.class})
     public TeacherReadOnlyDTO saveTeacher(TeacherInsertDTO dto)
             throws EntityAlreadyExistsException, EntityInvalidArgumentException {
 
@@ -92,7 +92,7 @@ public class TeacherService implements ITeacherService {
 
     @Override
     @PreAuthorize("hasAuthority('EDIT_TEACHER')")
-    @Transactional(rollbackFor = { EntityNotFoundException.class, EntityAlreadyExistsException.class, EntityInvalidArgumentException.class} )
+    @Transactional(rollbackFor = {EntityNotFoundException.class, EntityAlreadyExistsException.class, EntityInvalidArgumentException.class})
     public TeacherReadOnlyDTO updateTeacher(TeacherEditDTO dto)
             throws EntityNotFoundException, EntityAlreadyExistsException, EntityInvalidArgumentException {
         try {
@@ -169,6 +169,7 @@ public class TeacherService implements ITeacherService {
             throw e;
         }
     }
+
     @Override
     @PreAuthorize("hasAuthority('EDIT_TEACHER')")
     @Transactional(readOnly = true)
@@ -182,4 +183,6 @@ public class TeacherService implements ITeacherService {
         } catch (EntityNotFoundException e) {
             log.error("Get teacher by uuid={} failed", uuid, e);
             throw e;
+        }
+    }
 }

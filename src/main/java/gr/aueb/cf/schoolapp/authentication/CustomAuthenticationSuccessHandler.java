@@ -29,10 +29,10 @@ public class CustomAuthenticationSuccessHandler implements AuthenticationSuccess
         SavedRequest savedRequest = requestCache.getRequest(request, response);
 
         if(savedRequest != null){
-         response.sendRedirect(savedRequest.getRedirectUrl());    //relative URL
-            redirectStrategy.sendRedirect(request, response, savedRequest.getRequestUrl());
+//         response.sendRedirect(savedRequest.getRedirectUrl());    //relative URL
+            redirectStrategy.sendRedirect(request, response, savedRequest.getRedirectUrl());
             return;
-//        }
+      }
 //        Set<String> authorities = new HashSet<>();
 //        for(GrantedAuthority authority : authentication.getAuthorities()){
 //            authorities.add(authority.getAuthority());

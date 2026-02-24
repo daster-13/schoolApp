@@ -1,9 +1,11 @@
+package gr.aueb.cf.schoolapp.model;
 import jakarta.persistence.*;
 import lombok.*;
 
 import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
+import gr.aueb.cf.schoolapp.model.Role;
 
 
 
