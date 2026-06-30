@@ -35,9 +35,9 @@ public class SecurityConfig {
         http
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(authorize -> authorize
-                        .requestMatchers("/", "index.html"). permitAll()  // dinoyme dikaioma authorization
+                        .requestMatchers("/", "index.html"). permitAll()  //
                         .requestMatchers("/login").permitAll()
-                        .requestMatchers("/user/register", "/user/success").permitAll()
+                        .requestMatchers("/users/register", "/users/success").permitAll()
                         .requestMatchers("/teachers/insert").hasAuthority("INSERT_TEACHER")
                         .requestMatchers(HttpMethod.GET,"/teachers/edit/{uuid}").hasAuthority("EDIT_TEACHER")
                         .requestMatchers(HttpMethod.POST, "/teachers/edit").hasAuthority("EDIT_TEACHER")

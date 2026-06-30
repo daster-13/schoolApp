@@ -1,5 +1,6 @@
 package gr.aueb.cf.schoolapp.validator;
 
+import gr.aueb.cf.schoolapp.dto.TeacherEditDTO;
 import gr.aueb.cf.schoolapp.dto.TeacherInsertDTO;
 import gr.aueb.cf.schoolapp.service.ITeacherService;
 import lombok.RequiredArgsConstructor;
@@ -16,12 +17,12 @@ public class TeacherInsertValidator implements Validator {
 
     @Override
     public boolean supports(Class<?> clazz) {
-        return TeacherInsertDTO.class.isAssignableFrom(clazz);
+        return TeacherInsertDTO.class == clazz;
     }
 
     @Override
     public void validate(Object target, Errors errors) {
-        TeacherInsertDTO teacherInsertDTO =(TeacherInsertDTO)  target;
+        TeacherInsertDTO teacherInsertDTO = (TeacherInsertDTO)  target;
 
         if(teacherInsertDTO.vat() !=null && teacherService.isTeacherExists(teacherInsertDTO.vat())){
             log.warn("Save failed. Teacher with vat={} already exists", teacherInsertDTO.vat());

@@ -19,7 +19,7 @@ public class TeacherEditValidator implements Validator {
 
     @Override
     public boolean supports(Class<?> clazz) {
-        return TeacherEditDTO.class.isAssignableFrom(clazz);
+        return TeacherEditDTO.class == clazz;
     }
 
     @Override
